@@ -1,7 +1,7 @@
 const vscode = require("vscode");
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 
-const API_KEY = "AIzaSyCHUQQlEQXH11W74V-gi8FMK7dQs5kRwHw"; // 🔥 Replace with your actual Gemini API Key
+const API_KEY = "api_key"; // 🔥 Replace with your actual Gemini API Key
 
 const genAI = new GoogleGenerativeAI(API_KEY);
 const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
