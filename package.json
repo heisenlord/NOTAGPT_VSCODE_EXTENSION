@@ -1,0 +1,75 @@
+{
+  "name": "notagpt",
+  "displayName": "NOTAGPT",
+  "description": "AI Code Generator with Gemini API",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished",
+    "onCommand:notagpt.generateCode",
+    "onCommand:notagpt.explainCode",
+    "onCommand:notagpt.refactorCode",
+    "onCommand:notagpt.generateTestCase",
+    "onView:NOTAGPT"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "NOTAGPT",
+          "title": "NOTAGPT",
+          "icon": "./logo.jpg"
+        }
+      ]
+    },
+    "views": {
+      "NOTAGPT": [
+        {
+          "id": "notagptView",
+          "name": "AI Code Generator"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "notagpt.generateCode",
+        "title": "🚀 Generate Code",
+        "category": "NOTAGPT"
+      },
+      {
+        "command": "notagpt.explainCode",
+        "title": "📜 Explain Code",
+        "category": "NOTAGPT"
+      },
+      {
+        "command": "notagpt.refactorCode",
+        "title": "♻️ Refactor Code",
+        "category": "NOTAGPT"
+      },
+      {
+        "command": "notagpt.generateTestCase",
+        "title": "✅ Generate Test Case",
+        "category": "NOTAGPT"
+      }
+    ]
+  },
+  "scripts": {
+    "start": "nodemon --exec 'code --extensionDevelopmentPath=.'",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9",
+    "vsce": "^2.10.0",
+    "vscode": "^1.1.37"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.24.0",
+    "node-fetch": "^3.3.2"
+  }
+}
