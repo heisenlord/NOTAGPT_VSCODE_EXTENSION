@@ -1,9 +1,20 @@
-//modify this code into simpler
+require("dotenv").config(); // Load .env variables
 const vscode = require("vscode");
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 
-const genAI = new GoogleGenerativeAI("AIzaSyD-D-w1FvNco3QzXoRBqeSiQYmNPUqVzpg");
+// Get API Key from .env
+const API_KEY = process.env.GEMINI_API_KEY;
+if (!API_KEY) {
+  vscode.window.showErrorMessage(
+    "❌ Missing API Key. Set GEMINI_API_KEY in .env"
+  );
+  throw new Error("Missing API Key in .env");
+}
+
+const genAI = new GoogleGenerativeAI(API_KEY);
 const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
+
+module.exports = { model };
 
 function getTimeStamp() {
   const now = new Date();
