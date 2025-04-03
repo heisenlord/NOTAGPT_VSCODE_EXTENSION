@@ -1,0 +1,82 @@
+{
+  "name": "notagpt",
+  "displayName": "NOTAGPT",
+  "description": "AI Code Generator with Gemini API",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished",
+    "onCommand:notagpt.showPanel",
+    "onCommand:notagpt.generateCode",
+    "onCommand:notagpt.explainCode",
+    "onCommand:notagpt.refactorCode",
+    "onCommand:notagpt.generateTestCase",
+    "onView:notagpt-sidebar"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "notagpt.showPanel",
+        "title": "Show NOTAGPT Side Panel"
+      },
+      {
+        "command": "notagpt.generateCode",
+        "title": "🚀 Generate Code",
+        "category": "NOTAGPT"
+      },
+      {
+        "command": "notagpt.explainCode",
+        "title": "📜 Explain Code",
+        "category": "NOTAGPT"
+      },
+      {
+        "command": "notagpt.refactorCode",
+        "title": "♻️ Refactor Code",
+        "category": "NOTAGPT"
+      },
+      {
+        "command": "notagpt.generateTestCase",
+        "title": "✅ Generate Test Case",
+        "category": "NOTAGPT"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "notagpt-sidebar",
+          "title": "NOTAGPT",
+          "icon": "./media/logo.jpg"
+        }
+      ]
+    },
+    "views": {
+      "notagpt-sidebar": [
+        {
+          "id": "notagpt-sidebar",
+          "name": "AI Code Generator",
+          "type": "webview"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "start": "nodemon --exec 'code --extensionDevelopmentPath=.'",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9",
+    "vsce": "^2.15.0",
+    "vscode": "^1.1.37"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.24.0",
+    "dotenv": "^16.4.7",
+    "node-fetch": "^3.3.2"
+  }
+}
